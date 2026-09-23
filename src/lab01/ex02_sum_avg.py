@@ -1,3 +1,3 @@
-a=float(input())
-b=float(input())
-print(f'sum={a+b};avg={(a+b)/2:.2f}')
+a,b=float(input('a: ').replace(',','.')),float(input('b: ').replace(',','.'))
+
+print(f'sum={a+b:.2f};avg={(a+b)/2:.2f}')

@@ -1,8 +1,6 @@
 a=input('ФИО: ')
-initials=''
-k=0
-for i in (a.split()):
-    initials+=i[0]
-for n in (a.replace(' ','')):
-    k+=1
-print(initials,k)
+words=a.split()
+initials=''.join(w[0] for w in words)
+clean_fio=''.join(words)
+print(f'Инициалы:{initials}')
+print(f'Длина(символов):{len(clean_fio)}')
