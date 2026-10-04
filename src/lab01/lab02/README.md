@@ -34,6 +34,7 @@ def unique_sorted(nums: list[float | int]) -> list[float | int]:
     return unique
 ```
 Сначала функция убирает повторы созданием множества,затем сортирует-фиксирует элемент, сравнивает с последующими, меняя их мастами, если правый оказыввается меньше левого
+
 ![](/images/lab02/unique.png)
 
 ### flatten
@@ -81,6 +82,7 @@ def row_sums(mat: list[list[float | int]]) -> list[float]:
     return [sum(row) for row in mat]
 ```
 Функция сначала проверяет прямоугольная ли матрица,затем генератором счиатает сумму каждой строки
+
 ![](/images/lab02/row_sum.png)
 
 ### col_sums
@@ -91,3 +93,37 @@ def col_sums(mat: list[list[float | int]]) -> list[float]:
 ```
 Функция меняет строки и столбцы местами, использует предыдущую функцию для подсчета строк(бывших столбцов), где проверяется прямоугольная ли матрица
 ![](/images/lab02/col_sum.png)
+
+## Задание 3
+### typles
+```python
+def format_record(rec: tuple[str, str, float]) -> str:
+    fio, group, gpa =rec
+    
+    if not isinstance(rec,tuple):
+        raise TypeError("Запись должна быть кортежем")
+    if len(rec)!=3:
+        raise TypeError("В записи должны быть ФИО, группа, GPA")
+
+    if not isinstance(fio,str) or not isinstance(group,str):
+        raise TypeError("ФИО и группа должны быть строками")
+    if not isinstance(gpa,(int,float)):
+        raise TypeError("GPA должен быть числом")
+
+    fio_parts=fio.split()
+    group=group.strip()
+
+    if not group:
+        raise ValueError("Группа не может быть пустой")
+    if len(fio_parts) not in(2,3):
+        raise ValueError('ФИО должно состоять из 2-х и 3=х слов')
+    if not(0.0<=gpa<=5.0):
+        raise ValueError("GPA должен быть в диапазоне от 0.0 до 5.0")
+    
+    last_name=fio_parts[0].capitalize()
+    initials="".join(f'{part[0].upper()}.' for part in fio_parts[1:])
+
+    return f'{last_name} {initials}, гр. {group}, GPA {gpa:.2f}'
+```
+Функция сначала проверяет фио,группу и gpa на нужный тип данных,затем проверяет диапазон gpa, чистит ФИО от лишних пробелов,генератором создает инициалы с точками и выводит фамилию с большой буквы, инициалы с точкой,группу и gpa с двумя знаками после запятой
+![](/images/lab02/typles.png)
