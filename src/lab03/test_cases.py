@@ -1,4 +1,4 @@
-from text.py import normalize,tokenize 
+from text import normalize,tokenize 
 print('normalize')
 print(f"{"ПрИвЕт\nМИр\t"} -> {normalize("ПрИвЕт\nМИр\t")}")
 print(f"{"ёжик, Ёлка"} -> {normalize("ёжик, Ёлка",yo2e=True)}")
