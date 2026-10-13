@@ -40,3 +40,22 @@ def top_n(freq: dict[str, int], n: int = 5) -> list[tuple[str, int]]:
 Функция преобразует словарь в список пар (слово:частота) и сортирует по уменьшению количества повторений, а при совпадении частот сортирует по алфавиту.
 
 ![](/images/lab03/count_freq+top_n.png)
+
+## Задание B
+```python
+from text import normalize, tokenize, count_freq, top_n
+
+table_mode=True
+
+line = input()
+tokens = tokenize(normalize(line))
+freq_dict = count_freq(tokens)
+
+print(f'Всего слов:{len(tokens)}')
+print(f'Уникальных слов:{len(freq_dict)}')
+print('Топ-5:')
+for word, count in top_n(freq_dict):
+    print(f"{word}:{count}")
+```
+Функция принимает строку,нормализует ее, разбивает на отдельные слова и подсчитывает частоту каждого слова, выводит длину списка токенов,а для уникальных слов выводит длину словаря freq_dict, в конце выводит через цикл топ пять слов из списка top_n
+![](/images/lab03/text_stats.png)
