@@ -45,8 +45,6 @@ def top_n(freq: dict[str, int], n: int = 5) -> list[tuple[str, int]]:
 ```python
 from text import normalize, tokenize, count_freq, top_n
 
-table_mode=True
-
 line = input()
 tokens = tokenize(normalize(line))
 freq_dict = count_freq(tokens)
