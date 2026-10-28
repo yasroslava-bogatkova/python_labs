@@ -33,4 +33,24 @@ def json_to_scv() ->None:
 
         for row in data:
             writer.writerow(row)
-            
+def csv_to_json()->None:
+    c_path=Path(csv_path)
+    j_path=Path(json_path)
+
+    if not c_path.exists():
+        raise FileExistsError(f'Файл не найден:{csv_path}')
+    data=[]
+    with c_path.open('r',encoding='utf-8') as f:
+        reader=csv.DictReader(f)
+        if not reader.fieldnames:
+            raise ValueError(f"CSV файл {csv_path} без заголовка или пустой")
+        for row in reader:
+            data.append(row)
+
+    if not data:
+        raise ValueError(f'CSV не содержит данных')
+
+    j_path.parent.mkdir(parents=True,exist_ok=True)
+    with j_path.open('w',encoding='utf-8') as f:
+        json.dump(data,f,ensure_ascii=False,indent=2)
+    
