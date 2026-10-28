@@ -9,16 +9,16 @@
 
 ## Тесты
 ###  Файл - "Привет, мир! Привет!!!"
-#### Запуск:
-py src/lab04/text_report.py
+#### Запуск: py src/lab04/text_report.py
+
 ![](/images/lab04/test_a.png)
 
 ### Пустой файл
-#### Запуск:
-py src/lab04/text_report --in data/lab04/empty.txt --out data/lab04/report_empty.csv
+#### Запуск: py src/lab04/text_report --in data/lab04/empty.txt --out data/lab04/report_empty.csv
+
 ![](/images/lab04/test_b.png)
 
 ### Другая кодировка
-#### Запуск:
- py src/lab04/text_report.py --in data/lab04/input_cp1251.txt --out data/lab04/report_cp1251.csv --encoding cp1251
+#### Запуск: py src/lab04/text_report.py --in data/lab04/input_cp1251.txt --out data/lab04/report_cp1251.csv --encoding cp1251
+
 ![](/images/lab04/test_c.png)
