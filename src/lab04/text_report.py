@@ -26,7 +26,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Отчёт о частотах слов")
     parser.add_argument("--in", dest="input", default="data/lab04/input.txt")
     parser.add_argument("--out", dest="output", default="data/lab04/report.csv")
-    parser.add_argument("--encoding", default="utf-8")
+    parser.add_argument("--encoding", dest="encoding", default="utf-8")
     args = parser.parse_args()
 
     try:
