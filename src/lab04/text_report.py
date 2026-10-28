@@ -34,7 +34,6 @@ def main() -> int:
     except FileNotFoundError:
         print(f"Ошибка: файл не найден: {args.input}")
         return 1
-
     except UnicodeDecodeError:
         print(f"Ошибка: не удалось прочитать файл в кодировке {args.encoding}. "
               f"Попробуйте --encoding cp1251",file=sys.stderr)

@@ -20,11 +20,11 @@ def write_csv(rows: list[tuple | list], path: str | Path, header: tuple[str, ...
             csv_writer.writerow(header)
         csv_writer.writerows(rows)
 
-if __name__ == "__main__":
-    write_csv([("привет", 2), ("мир", 1)], "data/lab04/check.csv", header=("word", "count"))
-    write_csv([], "data/lab04/empty.csv")
-    write_csv([], "data/lab04/header_only.csv", header=("a", "b"))
-    try:
-        write_csv([("a", 1), ("b",)], "data/lab04/bad.csv")
-    except ValueError as e:
-        print("ValueError:", e)
+# if __name__ == "__main__":
+#     write_csv([("привет", 2), ("мир", 1)], "data/lab04/check.csv", header=("word", "count"))
+#     write_csv([], "data/lab04/empty.csv")
+#     write_csv([], "data/lab04/header_only.csv", header=("a", "b"))
+#     try:
+#         write_csv([("a", 1), ("b",)], "data/lab04/bad.csv")
+#     except ValueError as e:
+#         print("ValueError:", e)
