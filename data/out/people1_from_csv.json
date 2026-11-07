@@ -13,5 +13,10 @@
     "name": "Charlie",
     "age": "30",
     "city": "Kazan"
+  },
+  {
+    "name": "Andy",
+    "age": "20",
+    "city": "Ufa"
   }
 ]
