@@ -13,7 +13,7 @@ COMMANDS = {
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Конвертеры данных (ЛР6)")
+    parser = argparse.ArgumentParser(description="Конвертеры данных ")
     sub = parser.add_subparsers(dest="cmd", required=True)
 
     helps = {
