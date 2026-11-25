@@ -5,12 +5,7 @@ from pathlib import Path
 
 from src.lab04.io_txt_csv import write_csv
 from src.lab07.sorting import bubble_sort, insertion_sort, selection_sort
-from src.lab07.search import (
-    linear_search,
-    binary_search,
-    two_sum_brute,
-    two_sum_fast,
-)
+from src.lab07.search import linear_search,binary_search,two_sum_brute,two_sum_fast
 
 
 def read_numbers(path):
@@ -35,8 +30,7 @@ def bench_sorts(n):
     for name, fn in (
         ("bubble_sort", bubble_sort),
         ("insertion_sort", insertion_sort),
-        ("selection_sort", selection_sort),
-    ):
+        ("selection_sort", selection_sort)):
         if n >= 100_000:
             rows.append(("sort", n, name, "> 60 s"))
             continue
@@ -51,31 +45,21 @@ def bench_search():
     n = 100_000
     queries_count = 10_000
     data = get_data(n)
-
-    queries = [
-        random.choice(data) if i % 2 == 0 else random.randint(-10**6, 10**6)
-        for i in range(queries_count)
-    ]
-
+    queries = [random.choice(data) if i % 2 == 0 else random.randint(-10**6, 10**6)
+        for i in range(queries_count)]
     rows = []
 
-    # 1. Линейный поиск
-    t_lin = timeit.timeit(
-        lambda: [linear_search(data, q) for q in queries],
-        number=1,
-    )
+
+    t_lin = timeit.timeit(lambda: [linear_search(data, q) for q in queries],number=1)
     rows.append(("search_10k", n, "linear_search", f"{t_lin:.6f}"))
 
-    # 2. Предварительная сортировка для бинарного поиска
+    """ Предварительная сортировка для бинарного поиска"""
     t_sort = timeit.timeit(lambda: sorted(data), number=1)
     sorted_data = sorted(data)
     rows.append(("search_prep", n, "sort_for_binary", f"{t_sort:.6f}"))
 
-    # 3. Бинарный поиск
-    t_bin = timeit.timeit(
-        lambda: [binary_search(sorted_data, q) for q in queries],
-        number=1,
-    )
+
+    t_bin = timeit.timeit(lambda: [binary_search(sorted_data, q) for q in queries],number=1)
     rows.append(("search_10k", n, "binary_search", f"{t_bin:.6f}"))
 
     return rows
@@ -106,7 +90,8 @@ def main():
     all_rows.extend(bench_two_sum())
 
     header = ("task", "n", "impl", "seconds")
-    print(f"{header:<14} | {header:>8} | {header:<18} | {header:>12}")
+    print(f"{header[0]:<14} | {header[1]:>8} | {header[2]:<18} | {header[3]:>12}")
+
     print("-" * 62)
     for task, n, impl, sec in all_rows:
         print(f"{task:<14} | {n:>8} | {impl:<18} | {sec:>12}")

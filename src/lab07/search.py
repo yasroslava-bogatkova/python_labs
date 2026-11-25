@@ -32,7 +32,6 @@ def two_sum_brute(nums: list[int], target: int) -> tuple[int, int] | None:
 
 
 def two_sum_fast(nums: list[int], target: int) -> tuple[int, int] | None:
-    """То же, что two_sum_brute, но за один проход со словарём."""
     seen = {}  
     for i, x in enumerate(nums):
         need = target - x
